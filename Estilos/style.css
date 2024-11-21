@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --accent-color: #00ffff;
+    --card-bg: #1a1a1a;
+    --card-hover: #2a2a2a;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(10, 10, 10, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo
+{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.hero {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bento-item {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-item:hover {
+    background-color: var(--card-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+}
+
+.bento-item h2,
+.bento-item h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+#skills,
+#contact {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    grid-column: span 2;
+}
+
+.project {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.project:hover::before {
+    transform: translateX(0);
+}
+
+.project-image-container {
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project:hover .project-image {
+    transform: scale(1.1);
+}
+
+.project-description {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #about,
+    #skills,
+    #contact {
+        grid-column: span 1;
+    }
+
+    .hero {
+        padding: 5rem 1rem 3rem;
+    }
+}
